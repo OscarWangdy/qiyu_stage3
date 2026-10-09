@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>同一用户提示 · 约束层 A/B</title>
+  <style>
+    *{box-sizing:border-box}html,body{margin:0;background:#0d100d;color:#ede6d7;font-family:"PingFang SC","Noto Sans CJK SC",sans-serif}
+    main{width:1600px;height:1000px;padding:52px 64px;background:radial-gradient(circle at 84% 14%,rgba(103,215,176,.12),transparent 30%),linear-gradient(135deg,#0a0c0a,#131913)}
+    header{display:flex;align-items:flex-end;justify-content:space-between;border-bottom:1px solid #38463d;padding-bottom:22px;margin-bottom:26px}
+    h1{margin:0;font-size:50px;letter-spacing:.03em}.sub{color:#9aa59e;margin-top:8px;font-size:18px}.meta{font:16px/1.7 ui-monospace,SFMono-Regular,monospace;color:#81d8ba;text-align:right}
+    .hashes{display:flex;gap:12px;margin-bottom:24px}.hash{padding:9px 12px;border:1px solid #354239;color:#93a39a;font:14px/1 ui-monospace,SFMono-Regular,monospace}.hash b{color:#81d8ba}
+    .grid{display:grid;grid-template-columns:.86fr 1.14fr;gap:26px;height:740px}.panel{border:1px solid #354239;background:rgba(12,15,12,.76);padding:28px 30px;position:relative;overflow:hidden}.panel::before{content:"";position:absolute;left:0;top:0;width:5px;height:100%;background:#75d9b7}.panel.deep::before{background:#ed4935}.tag{font:700 15px/1 ui-monospace,SFMono-Regular,monospace;color:#75d9b7;letter-spacing:.12em;margin-bottom:16px}.deep .tag{color:#ed6b58}.title{font-size:30px;font-weight:800;margin-bottom:14px}.body{font-size:20px;line-height:1.58;color:#e7dfd0}.stack{display:grid;grid-template-rows:1fr 1fr;gap:26px}.compare{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}.quote{padding:18px;border:1px solid #354239;background:#0c100d}.quote b{display:block;margin-bottom:10px;color:#81d8ba}.quote.deep b{color:#ff8f7e}.finding{margin-top:22px;padding:15px 18px;border-left:4px solid #ed4935;background:rgba(237,73,53,.12);font-size:18px;line-height:1.5;color:#ffc2b8}.foot{position:absolute;left:64px;bottom:20px;font:14px/1 ui-monospace,SFMono-Regular,monospace;color:#718077;letter-spacing:.08em}
+  </style>
+</head>
+<body><main>
+  <header><div><h1>同一用户提示 · 约束层 A/B</h1><div class="sub">两端语言模型均为 deepseek-flash；棋语端额外注入 system prompt 与当前棋盘上下文</div></div><div class="meta">STRICT USER-PROMPT MATCH<br>2026-10-09 · Asia/Shanghai</div></header>
+  <div class="hashes"><span class="hash"><b>C01</b> · c740928678e5</span><span class="hash"><b>C02</b> · a00a65c5c4ba</span><span class="hash"><b>C03</b> · 67a3e79bf81b</span></div>
+  <section class="grid">
+    <div class="stack">
+      <article class="panel"><div class="tag">C01 · CONVERGED</div><div class="title">同一开局库信号，不再双重计证</div><div class="body">棋语语言层与原生端点均推荐 h7-e7，并明确：448 / 877 = 51.1% 是同一开局库中的选择频次，不是胜率，也不是独立的“模型证据”。两端都正确披露 depth=0、nodes=0，本次没有展开搜索。</div></article>
+      <article class="panel"><div class="tag">C02 · CONVERGED</div><div class="title">无证据赛事：两端都拒绝补写</div><div class="body">两端都把赛事存在性、参赛记录和“第三名”标为当前材料无法确认，并把不确定性设为高。</div></article>
+    </div>
+    <article class="panel deep"><div class="tag">C03 · DIVERGED</div><div class="title">同一提示，额外约束改变了证据判断</div><div class="body">用户提示已明确给出“877 次 / 448 次 / 51.1%”以及来源边界。两端收到的用户提示 SHA-256 完全相同，但棋语的 system prompt 又要求把当前棋盘数据视为唯一事实来源。</div>
+      <div class="compare">
+        <div class="quote"><b>棋语语言层</b>无证据事实：无法确认<br><br>认为当前棋盘上下文没有开局库统计，风险等级判为中。</div>
+        <div class="quote deep"><b>DeepSeek 原生端点</b>无证据事实：未发现<br><br>接受用户提示中给出的来源限定，风险等级判为低。</div>
+      </div>
+      <div class="finding">发现的不是“谁更聪明”，而是 grounding 冲突：过窄的系统证据边界会覆盖用户提示中已提供的结构化事实。</div>
+    </article>
+  </section>
+  <div class="foot">FULL RAW OUTPUT · evidence/strict_cross_tool.json</div>
+</main></body></html>

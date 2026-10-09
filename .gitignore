@@ -1,0 +1,10 @@
+.DS_Store
+qa/
+evidence/*.mjs
+evidence/run_deepseek_comparison.py
+evidence/run_qiyu_logic_ab.py
+evidence/run_strict_cross_tool.py
+assets/qiyu-risk-summary.png
+assets/deepseek-cross-tool.png
+evidence/deepseek-response.html
+evidence/deepseek_cross_tool.json
