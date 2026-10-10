@@ -1,0 +1,61 @@
+{
+  "executed_at": "2026-10-10T15:59:43.871916+08:00",
+  "method": "Actual QiYuAgent.decide with loaded frozen v3 model, initial red board, forward hook, CPU. No mock.",
+  "checkpoint": "artifacts/training_v3_long/best_model.pt",
+  "checkpoint_sha256": "02b3a7e1ac936bd7acce2d46be37dedc2d8d59a07b9940b0beea5623d977c729",
+  "opening_book_sha256": "194b33dd1b49b0c4912984eae019d6dbfd612d6df03227f881be591c768096ce",
+  "forward_calls": 1,
+  "forward_events": [
+    {
+      "time_monotonic": 0.666126625,
+      "input_shape": [
+        1,
+        92
+      ],
+      "outputs": 4
+    }
+  ],
+  "elapsed_seconds": 0.015106000000000064,
+  "move": "h7-e7",
+  "engine": "master-opening-book",
+  "search": {
+    "depth": 0,
+    "nodes": 0,
+    "elapsed_ms": 0.0,
+    "opening_book": true
+  },
+  "candidates": [
+    {
+      "move": "h7-e7",
+      "notation": "炮二平五",
+      "score": 0.5108,
+      "master_games": 448
+    },
+    {
+      "move": "c6-c5",
+      "notation": "兵七进一",
+      "score": 0.2759,
+      "master_games": 242
+    },
+    {
+      "move": "g9-e7",
+      "notation": "相三进五",
+      "score": 0.0525,
+      "master_games": 46
+    },
+    {
+      "move": "b9-c7",
+      "notation": "马八进七",
+      "score": 0.0456,
+      "master_games": 40
+    },
+    {
+      "move": "b7-e7",
+      "notation": "炮八平五",
+      "score": 0.0353,
+      "master_games": 31
+    }
+  ],
+  "attention_length": 90,
+  "scope": "One opening-book position, not a causal attention intervention, not a win-rate or playing-strength experiment."
+}
